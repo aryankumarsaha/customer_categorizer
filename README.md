@@ -1,89 +1,60 @@
-Customer Personality Segmentation
-Problem Statement
-This project aims to build a machine learning system that predicts customer personality segments. It’s useful for malls, stores, and product-based companies. By analyzing customers' personal and purchase data, we can group them into clusters and predict their segment using classification techniques.
-
-Proposed Solution
-To predict customer clusters dynamically, we use machine learning. First, we cluster customers based on existing data and domain knowledge. Then, we train models to predict which cluster a new customer belongs to, leveraging historical customer data.
-
-Tech Stack Used
-Python
-
-FastAPI
-
-Machine Learning algorithms
-
-Docker
-
-MongoDB
-
-How to Run
-Make sure you have a MongoDB Atlas account and have uploaded the shipping dataset.
-
-Create and activate a conda environment:
-
-bash
-conda create --prefix venv python=3.7 -y  
+# Customer Personality Segmentation
+## Problem statement
+In this data science project, we will build a machine learning system which will be able predict the personality of the customer using machine learning algorithms. This project will be very usefull for malls, various stores and companies which are product based. Based on customer's personal details and purchase details, we can cluster them and we can predict the customer's cluster number using classification techniques.
+## Solution Proposed
+Now the question is how to dynamically predict the cluster of the customer ?. One of the approaches which we can use of machine learning approach, where we can cluster the customer based on the details we have and predict the cluster type based on the domain knowledge and leverage previous customer data to predict the cluster.
+## Tech Stack Used
+1. Python
+2. FastAPI
+3. Machine learning algorithms
+4. Docker
+5. MongoDB
+## How to run
+Before you run this project make sure you have MongoDB Atlas account and you have the shipping dataset into it.
+Step 1. Create a conda environment.
+```
+conda create --prefix venv python=3.7 -y
+```
+```
 conda activate venv/
-Install dependencies:
-
-bash
+```
+Step 2. Install the requirements
+```
 pip install -r requirements.txt
-Set environment variables:
-
-bash
-export AWS_ACCESS_KEY_ID=<your_aws_access_key>  
-export AWS_SECRET_ACCESS_KEY=<your_aws_secret_key>  
-export AWS_DEFAULT_REGION=<your_aws_region>  
-export MONGODB_URL=<your_mongodb_connection_string>
-Run the app server:
-
-bash
+```
+Step 3. Export the environment variable
+```bash
+export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
+export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
+export AWS_DEFAULT_REGION=<AWS_DEFAULT_REGION>
+export MONGODB_URL= <MONGODB_URL>
+```
+Step 4. Run the application server
+```
 python app.py
-Start training on: http://localhost:5000/train
+```
+Step 5. Train application
+```bash
+http://localhost:5000/train
+```
+Step 6. Prediction application
+```bash
+http://localhost:5000/predict
+```
 
-Make predictions on: http://localhost:5000/predict
+## `src` is the main package folder which contains
 
-Run Locally with Docker
-Make sure Dockerfile is in the project directory.
+**Components** : Contains all components of Machine Learning Project
+- Data Ingestion
+- Data Validation
+- Data Transformation
+- Data Clustering
+- Model Trainer
+- Model Evaluation
+- Model Pusher
+**Custom Logger and Exceptions** are used in the Project for better debugging purposes.
+## Conclusion
+- This Project can be used in real-life by Users.
 
-Build Docker image:
 
-bash
-docker build --build-arg AWS_ACCESS_KEY_ID=<aws_key> --build-arg AWS_SECRET_ACCESS_KEY=<aws_secret> --build-arg AWS_DEFAULT_REGION=<region> --build-arg MONGODB_URL=<mongo_url> .
-Run Docker image:
 
-bash
-docker run -d -p 5000:5000 <image_name>
-Project Architecture
-(Include your architecture diagrams here as images)
-
-Models Used
-K-Means clustering for grouping customers
-
-Logistic Regression for predicting customer segment
-
-Hyperparameter tuning with GridSearchCV for optimal model performance
-
-Project Structure
-The main folder src contains:
-
-Data Ingestion
-
-Data Validation
-
-Data Transformation
-
-Data Clustering
-
-Model Training
-
-Model Evaluation
-
-Model Deployment
-
-Custom logging and exception handling are implemented for easier debugging.
-
-Conclusion
-This project can be leveraged by businesses to improve customer targeting based on predicted personality segments.
-
-This version is more conversational, clear, and easy to follow while retaining all essential details and instructions.
